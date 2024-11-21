@@ -36,30 +36,42 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="title">До Нового года:</h1>
-    <div class="countdown">
-      <div class="time-box">
-        <span class="time">{{ days }}</span>
-        <span class="label">Дней</span>
-      </div>
-      <div class="time-box">
-        <span class="time">{{ hours }}</span>
-        <span class="label">Часов</span>
-      </div>
-      <div class="time-box">
-        <span class="time">{{ minutes }}</span>
-        <span class="label">Минут</span>
-      </div>
-      <div class="time-box">
-        <span class="time">{{ seconds }}</span>
-        <span class="label">Секунд</span>
+  <div class="wr">
+    <div class="container">
+<!--      <h1 class="title">До Нового года:</h1>-->
+      <div class="countdown">
+        <div class="time-box">
+          <span class="label">Дней</span>
+          <span class="time">{{ days }}</span>
+        </div>
+        <div class="time-box">
+          <span class="label">Часов</span>
+          <span class="time">{{ hours }}</span>
+        </div>
+        <div class="time-box">
+          <span class="label">Минут</span>
+          <span class="time">{{ minutes }}</span>
+        </div>
+        <div class="time-box">
+          <span class="label">Секунд</span>
+          <span class="time">{{ seconds }}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.wr {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding-top: 50px;
+  justify-content: center;
+  background-image: url("./assets/test.jpg");
+  background-size: 100vw 100vh;
+  opacity: 80%;
+}
 .container {
   text-align: center;
   font-family: Arial, sans-serif;
@@ -91,7 +103,7 @@ h1 {
 
 .label {
   font-size: 1rem;
-  color: #555;
+  color: #bebebe;
 }
 
 .title {
