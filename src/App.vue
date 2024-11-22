@@ -52,7 +52,7 @@ async function connectToWallet() {
       manifestUrl: 'https://gleaming-figolla-478e91.netlify.app/tonconnect-manifest.json',
       buttonRootId: 'ton-connect'
     });
-    const connectedWallet = await tonConnectUI.connectWallet();
+    await tonConnectUI.connectWallet();
 
   } catch {
     console.log("Error connecting to wallet:")
