@@ -28,6 +28,16 @@ let timer: number;
 onMounted(() => {
   calculateTimeLeft();
   timer = setInterval(calculateTimeLeft, 1000);
+  const button = document.querySelector('.box');
+  const boxBg = document.querySelector('.box-bg');
+
+  button!.addEventListener('touchstart', () => {
+    boxBg!.classList.add('active');
+  });
+
+  button!.addEventListener('touchend', () => {
+    boxBg!.classList.remove('active');
+  });
 });
 
 onUnmounted(() => {
@@ -79,7 +89,7 @@ onUnmounted(() => {
 }
 .container {
   position: absolute;
-  top: 70%;
+  margin-bottom: 30px;
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -120,7 +130,7 @@ h1 {
 
 .box {
   position: absolute;
-  top: 57%;
+  bottom: 120px;
   width: 100px;
   height: 100px;
   background-image: url("./assets/box.png");
@@ -139,10 +149,14 @@ h1 {
   box-shadow: 0 0 90px #fd16fb;
 }
 
+.active {
+  box-shadow: 0 0 90px #fd16fb;
+}
+
 .box-bg {
   background-color: white;
   position: absolute;
-  top: 60%;
+  bottom: 140px;
   width: 50px;
   height: 50px;
   z-index: 99;
