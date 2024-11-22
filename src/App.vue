@@ -72,15 +72,17 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: end;
+  background-color: #747bff;
   background-image: url("./assets/back.jpg");
-  background-size: 100vw 100vh;
+  background-size: contain;
   /*opacity: 95%;*/
 }
 .container {
+  position: absolute;
+  top: 70%;
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 20px;
-  margin-bottom: 60px;
 }
 
 h1 {
@@ -118,7 +120,7 @@ h1 {
 
 .box {
   position: absolute;
-  top: 650px;
+  top: 57%;
   width: 100px;
   height: 100px;
   background-image: url("./assets/box.png");
@@ -135,8 +137,9 @@ h1 {
 }
 
 .box-bg {
+  background-color: white;
   position: absolute;
-  top: 675px;
+  top: 60%;
   width: 50px;
   height: 50px;
   z-index: 99;
