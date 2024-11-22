@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
+import {TonConnectUI} from '@tonconnect/ui';
+// import TonConnectModal from "./components/TonConnectModal.vue";
 
+// const options = {
+//   manifestUrl:"https://gleaming-figolla-478e91.netlify.app/tonconnect-manifest.json",
+// };
 // Telegram WebApp
 const telegram = window.Telegram?.WebApp;
 telegram?.expand(); // Раскрыть WebApp на весь экран
@@ -26,6 +31,7 @@ const calculateTimeLeft = () => {
 let timer: number;
 
 onMounted(() => {
+
   calculateTimeLeft();
   timer = setInterval(calculateTimeLeft, 1000);
   const button = document.querySelector('.box');
@@ -40,14 +46,40 @@ onMounted(() => {
   });
 });
 
+async function connectToWallet() {
+  try {
+    const tonConnectUI = new TonConnectUI({
+      manifestUrl: 'https://gleaming-figolla-478e91.netlify.app/tonconnect-manifest.json',
+      buttonRootId: 'ton-connect'
+    });
+    const connectedWallet = await tonConnectUI.connectWallet();
+
+  } catch {
+    console.log("Error connecting to wallet:")
+
+  }
+  // Do something with connectedWallet if needed
+}
+
+// Call the function
+
+
 onUnmounted(() => {
   clearInterval(timer);
 });
+
+const onClick = () => {
+  connectToWallet().catch(error => {
+    console.error("Error connecting to wallet:", error);
+  });
+}
 </script>
 
 <template>
+<!--  <TonConnectModal />-->
+  <div id="ton-connect" style="display: none"></div>
   <div class="wr">
-    <div class="box">
+    <div class="box" @click="onClick">
     </div>
     <div class="box-bg">
     </div>
@@ -84,7 +116,8 @@ onUnmounted(() => {
   align-items: end;
   background-color: #747bff;
   background-image: url("./assets/back.jpg");
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
   /*opacity: 95%;*/
 }
 .container {
