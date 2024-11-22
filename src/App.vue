@@ -135,6 +135,9 @@ h1 {
 .box:hover + .box-bg {
   box-shadow: 0 0 90px #fd16fb;
 }
+.box:focus + .box-bg {
+  box-shadow: 0 0 90px #fd16fb;
+}
 
 .box-bg {
   background-color: white;
