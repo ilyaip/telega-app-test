@@ -37,45 +37,50 @@ onUnmounted(() => {
 
 <template>
   <div class="wr">
+    <div class="box">
+    </div>
+    <div class="box-bg">
+    </div>
     <div class="container">
 <!--      <h1 class="title">До Нового года:</h1>-->
       <div class="countdown">
         <div class="time-box">
-          <span class="label">Дней</span>
           <span class="time">{{ days }}</span>
+          <span class="label">d</span>
         </div>
         <div class="time-box">
-          <span class="label">Часов</span>
           <span class="time">{{ hours }}</span>
+          <span class="label">h</span>
         </div>
         <div class="time-box">
-          <span class="label">Минут</span>
           <span class="time">{{ minutes }}</span>
+          <span class="label">m</span>
         </div>
         <div class="time-box">
-          <span class="label">Секунд</span>
           <span class="time">{{ seconds }}</span>
+          <span class="label">s</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .wr {
   width: 100vw;
   height: 100vh;
   display: flex;
-  padding-top: 50px;
   justify-content: center;
-  background-image: url("./assets/test.jpg");
+  align-items: end;
+  background-image: url("./assets/back.jpg");
   background-size: 100vw 100vh;
-  opacity: 80%;
+  /*opacity: 95%;*/
 }
 .container {
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 20px;
+  margin-bottom: 60px;
 }
 
 h1 {
@@ -86,27 +91,56 @@ h1 {
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .time-box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  align-items: baseline;
 }
 
 .time {
   font-size: 2.5rem;
-  font-weight: bold;
-  color: #ff6b6b;
+  /*font-weight: bold;*/
+  color: #ecc966;
 }
 
 .label {
-  font-size: 1rem;
-  color: #bebebe;
+  font-size: 2rem;
+  color: #ecc966;
 }
 
 .title {
   text-transform: uppercase;
+}
+
+.box {
+  position: absolute;
+  top: 650px;
+  width: 100px;
+  height: 100px;
+  background-image: url("./assets/box.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 100;
+  transition: 0.3s ease;
+}
+.box:active + .box-bg {
+  box-shadow: 0 0 90px #fd16fb;
+}
+.box:hover + .box-bg {
+  box-shadow: 0 0 90px #fd16fb;
+}
+
+.box-bg {
+  position: absolute;
+  top: 675px;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  transition: 0.3s ease;
+
 }
 </style>
